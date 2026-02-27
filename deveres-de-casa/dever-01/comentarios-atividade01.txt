@@ -1,0 +1,66 @@
+Dever de Casa - 01
+Objetivo
+- Comparar empiricamente a eficiência de dois métodos de ordenação e identificar o "ponto de ruptura" onde a teoria assintótica se torna visível na prática.
+Exercício
+- Implementar o algoritmo Insertion Sort O(n^2)
+- Usar a função nativa do Python sorted() que usa o Timsort,(n log n) para fins de comparação.
+- Gere listas aleatórias de tamanhos n = [1000, 5000, 10000, 20000, 50000].
+- Meça o tempo de execução de ambor os algoritmos para cada n, gerando a saída no terminal de cada um deles usando a biblioteca time.
+
+Respostas/ Reflexões
+Saida:
+Starting tests...
+
+List size: 10
+Insertion Sort execution time: 0.000008 seconds
+sorted() execution time:       0.000002 seconds
+Result: sorted() is faster.
+
+List size: 25
+Insertion Sort execution time: 0.000010 seconds
+sorted() execution time:       0.000002 seconds
+Result: sorted() is faster.
+
+List size: 50
+Insertion Sort execution time: 0.000036 seconds
+sorted() execution time:       0.000003 seconds
+Result: sorted() is faster.
+
+List size: 100
+Insertion Sort execution time: 0.000152 seconds
+sorted() execution time:       0.000008 seconds
+Result: sorted() is faster.
+
+List size: 250
+Insertion Sort execution time: 0.001065 seconds
+sorted() execution time:       0.000032 seconds
+Result: sorted() is faster.
+
+List size: 500
+Insertion Sort execution time: 0.004591 seconds
+sorted() execution time:       0.000042 seconds
+Result: sorted() is faster.
+
+List size: 1000
+Insertion Sort execution time: 0.022127 seconds
+sorted() execution time:       0.000157 seconds
+Result: sorted() is faster.
+
+List size: 5000
+Insertion Sort execution time: 0.536364 seconds
+sorted() execution time:       0.000534 seconds
+Result: sorted() is faster.
+
+List size: 10000
+Insertion Sort execution time: 2.168233 seconds
+sorted() execution time:       0.001275 seconds
+Result: sorted() is faster.
+
+List size: 20000
+Insertion Sort execution time: 7.919240 seconds
+sorted() execution time:       0.002388 seconds
+Result: sorted() is faster.
+
+--- Tests Completed ---
+
+O resultado faz todo o sentido, uma vez que pela teoria assintótica a uma função O(n log n) é mais rápida que uma O(n^2) em todos os casos.
