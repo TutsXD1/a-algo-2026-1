@@ -1,0 +1,36 @@
+O exemplo escolido de uso do algoritmo de Floyd Warshal é otimizacao de rotas de transporte.
+
+1. MODELAGEM DA REDE
+Para iniciar o calculo, a malha de transportes e representada como um grafo ponderado:
+- Vertices (Nos): Cidades, aeroportos ou terminais de carga.
+- Arestas (Links): Rodovias, trilhos ou rotas aereas.
+- Pesos: O custo de deslocamento (distancia em km, tempo em minutos ou custo de combustivel).
+
+2. CONSTRUCAO DA MATRIZ DE ADJACENCIA
+Os dados sao organizados em uma matriz inicial D, de tamanho n x n (onde n e o numero de cidades):
+- Se houver conexao direta entre as cidades i e j, D[i][j] = peso da rota.
+- Se nao houver conexao direta, D[i][j] = infinito (representado por um valor muito alto).
+- A diagonal principal D[i][i] e sempre 0 (distancia de uma cidade para ela mesma).
+
+3. O PROCESSO DE ITERACAO
+O algoritmo executa tres loops aninhados. Para cada cidade intermediaria possivel (k), verifica-se se passar por ela encurta a distancia entre qualquer par de cidades (i, j).
+
+A logica matematica aplicada e:
+dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j])
+
+Nesta etapa, o sistema "descobre" atalhos. Se um voo direto de A para B e caro, mas a soma das escalas A -> C e C -> B e menor, a matriz e atualizada com o valor mais eficiente.
+
+4. APLICACOES PRATICAS NA LOGISTICA
+Ao utilizar este algoritmo, obtemos os seguintes resultados:
+
+- Tabela de Roteamento Global: Uma matriz final onde qualquer consulta de origem/destino retorna instantaneamente o custo minimo.
+- Identificacao de Hubs Estrategicos: Cidades que aparecem frequentemente como caminhos intermediarios sao identificadas como pontos criticos para investimento.
+- Resiliencia de Rede: Simulacao de fechamento de rotas (definindo o peso como infinito) para recalcular alternativas para toda a rede de uma so vez.
+
+VANTAGENS:
+- Fornece a distancia entre TODOS os pontos simultaneamente.
+- Simplicidade de implementacao.
+- Eficaz para redes de transporte com centenas de hubs.
+
+LIMITACAO:
+- Possui complexidade O(n^3), o que significa que o tempo de processamento cresce rapidamente com o aumento do numero de cidades.
